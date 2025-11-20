@@ -13,6 +13,7 @@ file_path = "websites.txt" #replace--------------!
 
 #empty output
 File.write("output.txt", "")
+File.write("outputDetails.txt", "")
 #retrieve target sites
 sites = File.readlines(file_path)
 #list of vulnerabilities/basic vulnerability indicators (default)
@@ -34,5 +35,6 @@ for site in sites do
   if vuln.any? { |v| cmd.include?(v) }
     #write vulnerable sites to output
     File.write("output.txt", site+"\n", mode: "a")
+    File.write("outputDetails.txt", cmd+"\n\n", mode: "a")
   end
 end
